@@ -41,7 +41,7 @@ body {
 
 /* Header  */
 .hd {
-  
+  margin-left: 0px;
   height: 60px;
   display: flex;
   width: 160vh;
@@ -121,7 +121,7 @@ body {
 /* Main  */  
 .main-container {
   grid-area: main;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: auto hidden;
   padding: 5px 20px;
   color: rgba(255, 255, 255, 0.95);
@@ -179,7 +179,8 @@ body {
   grid-template-columns: 0fr 0fr;
   margin-top: 5px;
   height: 300px;
-  
+  padding-bottom: 20px;
+  gap: 80px;
 }
 
 /* End Main  */
@@ -211,13 +212,17 @@ body {
 /* Small <= 768px */
   
 @media screen and (max-width: 768px) {
+  .char{
+    margin-left: 10px;
+  }
   .main-cards {
     margin: 0px;
     display: grid;
     grid-template-columns: 200px 200px;
     grid-row: auto auto;
-    grid-column-gap: 40px;
-    grid-row-gap: 10px;
+    grid-column-gap: 0cm;
+    grid-row-gap: 0px;
+    padding-right: 0px;
   }
   .icona {
     margin-top: 10px;
@@ -226,26 +231,33 @@ body {
     font-size: 20px;
     padding-right: 5px;
   }
-  
+
+  #sidebar{
+    height: 120%;
+    position: fixed;
+  }
   .card {
     display: flex;
     justify-content: space-around;
     margin: 10px 10px;
     border-radius: 5px;
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
+    font-size: 10px;
+    padding: 10px;
   }
 
   .hd{
-    width: 480px;
+    width: 300px;
+    padding: 0 10px 0 10px;
   }
   .main-title{
-    font-size: 16px;
+    font-size: 11px;
     margin-left: 10px;
   }
 
   .inp{
-    margin-left: 0px;
+    margin-left: 10px;
     display: flex;
     text-align: left;
     justify-content: left;
@@ -254,6 +266,7 @@ body {
 
   .main-container{
     overflow:inherit;
+    padding: 5px 5px;
   }
   .header-left{
     display: inline;
@@ -263,7 +276,7 @@ body {
     width:40vh;
   }
   .header-right{
-    margin-left: 40px;
+    display: none;
   }
   .charts {
     width: 100%;
@@ -276,9 +289,8 @@ body {
   .tm, .hm,  .aq{
     display: flex;
     flex-direction: column;
-    text-align: center;
     margin-top: 60px;
-    width: 500px;
+    width: 400px;
     height: 300px;
   }
   
@@ -299,9 +311,17 @@ body {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    
+    height: 40vh;
+   padding: 0px;
   }
-}
+
+  .br{
+    width: 400;
+    height: 300;
+  }
+
+  }
+
 
 /* Extra Small <= 576px */
 
@@ -351,3 +371,11 @@ body {
   border: #071125;
 }
 
+.header-right{
+  padding: 20px;
+}
+
+.char{
+  display: flex;
+  margin-left: 10px;
+}

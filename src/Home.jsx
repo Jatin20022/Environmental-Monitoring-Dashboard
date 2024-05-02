@@ -28,44 +28,37 @@ function Home({OpenSidebar}) {
     const data1 = [
         {
           name: currdate-7 +''+currmonth,
-          ["Min-temperature(in C°)"]: 25,
-          ["Max-temperature(in C°)"]: 30,
+          ["Temperature(in C°)"]: 30,
           amt: 2400,
         },
         {
           name: currdate-6 +''+currmonth,
-          ["Min-temperature(in C°)"]: 14,
-          ["Max-temperature(in C°)"]: 30,
+          ["Temperature(in C°)"]: 30,
           amt: 2210,
         },
         {
           name: currdate-5 +''+currmonth,
-          ["Min-temperature(in C°)"]: 20,
-          ["Max-temperature(in C°)"]: 25,
+          ["Temperature(in C°)"]: 25,
           amt: 2290,
         },
         {
           name: currdate-4 +''+currmonth,
-          ["Min-temperature(in C°)"]: 25,
-          ["Max-temperature(in C°)"]: 30,
+          ["Temperature(in C°)"]: 30,
           amt: 2000,
         },
         {
           name: currdate-3 +''+currmonth,
-          ["Min-temperature(in C°)"]: 23,
-          ["Max-temperature(in C°)"]: 33,
+          ["Temperature(in C°)"]: 33,
           amt: 2181,
         },
         {
-          name: currdate-2 +''+currmonth,
-          ["Min-temperature(in C°)"]: 24,
-          ["Max-temperature(in C°)"]: 30,
+          name: currdate-2 +''+currmonth, 
+          ["Temperature(in C°)"]: 30,
           amt: 2500,
         },
         {
           name: currdate-1+''+currmonth,
-          ["Min-temperature(in C°)"]: 27,
-          ["Max-temperature(in C°)"]: 31,
+          ["Temperature(in C°)"]: 31,
           amt: 2100,
         },
       ];
@@ -241,39 +234,40 @@ function Home({OpenSidebar}) {
             </div>
         </div>
         <div className='charts'>
+          
             <div className='tm'>
-            <BarChart
-            width={480}
+            <BarChart className='br'
+            width={400}
             height={300}
             data={data1}
             margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 30,
+                right: 40,
+                left: 0,
+                bottom: 10,
             }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
-                <Legend />
-                <Bar dataKey="Min-temperature(in C°)" fill="green"/>
-                <Bar dataKey="Max-temperature(in C°)" fill="red"/>               
+                <Legend className='ld'/>
+                <Bar dataKey="Temperature(in C°)" fill="green"/>
+                              
                 </BarChart>
                 <h3>TEMPERATURE</h3>
                 </div>
             
               <div className='hm'>
                 <LineChart
-                width={480}
+                width={390}
                 height={300}
                 data={data2}
                 margin={{
-                    top: 5,
+                    top: 30,
                     right: 30,
-                    left: 20,
-                    bottom: 5,
+                    left: 0,
+                    bottom: 10,
                 }}
                 >
                 <CartesianGrid strokeDasharray="3 3" />
@@ -289,14 +283,14 @@ function Home({OpenSidebar}) {
             
             <div className='aq'>
             <LineChart className='Air-quality'
-                width={480}
+                width={390}
                 height={300}
                 data={data3}
                 margin={{
-                    top: 5,
+                    top: 30,
                     right: 30,
-                    left: 20,
-                    bottom: 5,
+                    left: 0,
+                    bottom: 10,
                 }}
                 >
                 <CartesianGrid strokeDasharray="3 3" />
@@ -319,7 +313,7 @@ function Home({OpenSidebar}) {
               arcWidth={0.2} 
               percent={0.37} 
 />
-<h3>CO LEVEL</h3>
+<h3>PRESSURE LEVEL</h3>
 </div> 
 <div className='pm'>
      
@@ -327,6 +321,17 @@ function Home({OpenSidebar}) {
 <CircularProgressbar className="cp" value={percentage} text={`${percentage}%`} />
 <h3>CO2 LEVEL</h3>
 </div>
+<div className='co'>
+              <GaugeChart id="gauge-chart3" 
+              nrOfLevels={10} 
+              width={500}
+              height={300}
+              colors={["green","yellow","red"]} 
+              arcWidth={0.2} 
+              percent={0.37} 
+/>
+<h3>CO LEVEL</h3>
+</div> 
 
         </div>
         </main>
