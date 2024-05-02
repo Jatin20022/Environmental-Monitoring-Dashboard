@@ -212,28 +212,45 @@ body {
   
 @media screen and (max-width: 768px) {
   .main-cards {
-    grid-template-columns: 0fr;
     display: flex;
+    flex-direction: column;
     gap: 10px;
   }
 
   .card {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    padding: 20px;
-    width: 100%;
+    padding: 15px;
     border-radius: 5px;
+    width: 320px;
+    height: 150px;
+  }
+
+  .hd{
+    width: 500px;
+  }
+  .main-title{
+    font-size: 13px;
+  }
+
+  .inp{
+    margin-left: 0;
+    display: flex;
+    text-align: left;
+    justify-content: left;
   }
 
   .main-container{
     overflow:inherit;
   }
+  .header-left{
+    width: 200vh;
+  }
 
   .charts {
     width: 100%;
-    display: grid;
-    flex-wrap:wrap ;
+    display:table-row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 10px;
@@ -244,8 +261,8 @@ body {
     flex-direction: column;
     text-align: center;
     margin-top: 60px;
-    width: 600px;
-    height: 400px;
+    width: 500px;
+    height: 300px;
   }
   
   .co{
