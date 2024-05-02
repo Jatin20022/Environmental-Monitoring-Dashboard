@@ -193,16 +193,16 @@ function Home({OpenSidebar}) {
     <div className='header'>
         <div className='hd'>
         <div className='menu-icon'>
-           <BsJustify className='icon' onClick={OpenSidebar}/>
+           <BsJustify className='icona' onClick={OpenSidebar}/>
         </div>
         <div className='header-left'>
             <input type='text' placeholder='Enter your city name' className='inp' onChange={inputevent} ></input>
-            <BsSearch  className='icon' onClick={submit} style={{cursor:'pointer'}}/>
+            <BsSearch  className='icona' onClick={submit} style={{cursor:'pointer'}}/>
         </div>
         <div className='header-right'>
-            <BsFillBellFill className='icon'/>
-            <BsFillEnvelopeFill className='icon'/>
-            <BsPersonCircle className='icon'/>
+            <BsFillBellFill className='icona'/>
+            <BsFillEnvelopeFill className='icona'/>
+            <BsPersonCircle className='icona'/>
         </div>
         </div>
         <main className='main-container'>

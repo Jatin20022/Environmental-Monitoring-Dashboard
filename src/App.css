@@ -212,48 +212,65 @@ body {
   
 @media screen and (max-width: 768px) {
   .main-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-row: auto auto;
+    grid-column-gap: 40px;
+    grid-row-gap: 10px;
   }
-
+  .icona {
+    margin-top: 10px;
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 20px;
+    padding-right: 5px;
+  }
+  
   .card {
     display: flex;
     justify-content: space-around;
-    padding: 15px;
+    margin: 10px 10px;
     border-radius: 5px;
-    width: 320px;
+    width: 200px;
     height: 150px;
   }
 
   .hd{
-    width: 500px;
+    width: 480px;
   }
   .main-title{
-    font-size: 13px;
+    font-size: 16px;
+    margin-left: 10px;
   }
 
   .inp{
-    margin-left: 0;
+    margin-left: 0px;
     display: flex;
     text-align: left;
     justify-content: left;
+    height: 20px;
   }
 
   .main-container{
     overflow:inherit;
   }
   .header-left{
-    width: 200vh;
+    display: inline;
+    text-align: center;
+    flex-direction: row;
+    margin-top: 12px;
+    width:40vh;
   }
-
+  .header-right{
+    margin-left: 40px;
+  }
   .charts {
     width: 100%;
     display:table-row;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px;
   }
 
   .tm, .hm,  .aq{
@@ -266,7 +283,7 @@ body {
   }
   
   .co{
-    
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     text-align: center;
