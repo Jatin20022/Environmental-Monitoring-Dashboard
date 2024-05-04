@@ -320,7 +320,7 @@ function Home({OpenSidebar}) {
                 <Line type="monotone" dataKey="Humidity" stroke="#ff6d00" activeDot={{ r: 8 }} />
                 
                 </LineChart>
-                <h3>HUMIDITY</h3>
+                <h3 className='humid'>HUMIDITY</h3>
                 </div>
             
             <div className='aq'>
