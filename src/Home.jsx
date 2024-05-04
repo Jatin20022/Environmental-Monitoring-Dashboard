@@ -20,6 +20,7 @@ function Home({OpenSidebar}) {
   const[inittemp,currtemp]=useState("31");
   const[initwind,currwind]=useState("2");
   const[initpressure,currpressure]=useState("1002");
+  const[initcountry,currcountry]=useState("");
 
   const[temp01,temp1]=useState(" ");
   const[temp02,temp2]=useState(" ");
@@ -87,6 +88,7 @@ function Home({OpenSidebar}) {
       wind3("-");
       wind4("-");
       currpressure("-");
+      currcountry("-");
       }
       
   }
@@ -180,10 +182,12 @@ function Home({OpenSidebar}) {
       const res= await fetch(apiUrl+city+`&appid=${apiKey}`)
       const actualData= await res.json();
       setData(actualData);
+      console.log(actualData);
       currhum(actualData.main.humidity);
       currtemp(actualData.main.temp);
       currwind(actualData.wind.speed);
       currpressure(actualData.main.pressure);
+      currcountry(actualData.sys.country);
     }
     catch(err){
       console.log(err);
@@ -216,13 +220,14 @@ function Home({OpenSidebar}) {
     
     }
   }
+  
 
   
   return (
     <div className='header'>
         <div className='hd'>
         <div className='menu-icon'>
-           <BsJustify className='icona' onClick={OpenSidebar}/>
+           <BsJustify className='icona' onClick={OpenSidebar} />
         </div>
         <div className='header-left'>
             <input type='text' placeholder='Enter your city name' className='inp' onChange={inputevent} ></input>
@@ -266,7 +271,7 @@ function Home({OpenSidebar}) {
                     <h3>CITY</h3>
                     <FaLocationDot className='card_icon'/>
                 </div>
-                <h1>{val}</h1>
+                <h1>{val+"("+initcountry+")"}</h1>
             </div>
         </div>
         <div className='charts'>
