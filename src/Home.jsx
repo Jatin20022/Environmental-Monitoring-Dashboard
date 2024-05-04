@@ -69,6 +69,24 @@ function Home({OpenSidebar}) {
     }
     catch(err){
       console.log(err);
+      alert("City not Found");
+      newval("-");
+      currhum("-");
+      currtemp("-");
+      currwind("-");
+      temp1("-");
+      temp2("-");
+      temp3("-");
+      temp4("-");
+      humid1("-");
+      humid2("-");
+      humid3("-");
+      humid4("-");
+      wind1("-");
+      wind2("-");
+      wind3("-");
+      wind4("-");
+      currpressure("-");
       }
       
   }
