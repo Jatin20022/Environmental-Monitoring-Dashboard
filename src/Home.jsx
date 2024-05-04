@@ -274,6 +274,7 @@ function Home({OpenSidebar}) {
                 <h1>{val+"("+initcountry+")"}</h1>
             </div>
         </div>
+        <h1 className='forcast'>Forcast(4 days):</h1>
         <div className='charts'>
           
             <div className='tm'>
