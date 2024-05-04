@@ -19,138 +19,153 @@ function Home({OpenSidebar}) {
   const[inithum,currhum]=useState("21");
   const[inittemp,currtemp]=useState("31");
   const[initwind,currwind]=useState("2");
+  const[initpressure,currpressure]=useState("1002");
+
+  const[temp01,temp1]=useState(" ");
+  const[temp02,temp2]=useState(" ");
+  const[temp03,temp3]=useState(" ");
+  const[temp04,temp4]=useState(" ");
+  const[humid01,humid1]=useState(" ");
+  const[humid02,humid2]=useState(" ");
+  const[humid03,humid3]=useState(" ");
+  const[humid04,humid4]=useState(" ");
+  const[wind01,wind1]=useState(" ");
+  const[wind02,wind2]=useState(" ");
+  const[wind03,wind3]=useState(" ");
+  const[wind04,wind4]=useState(" ");
+  
+
+
   const apiKey="0fb2b2196f87ce7319b36d0dd1501ac9";
   const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
+  const apiUrl2="https://api.openweathermap.org/data/2.5/forecast/?q=";
+  const add="&units=metric&cnt=50";
+ 
   const today = new Date();
-  let currdate=today.getDate();
-  let currmonth=today.toLocaleString('default', { month: 'short' });
+  let currhour=today.getDate();
+  let currmonth=today.toLocaleString('default', { month: 'short' });;
+  let currtime=currhour+""+currmonth;
+  const [data6, setData2]=useState([]);
+  
+
+  const getData2= async (city)=>{
+    try{
+      const res= await fetch(apiUrl2+city+add+`&appid=${apiKey}`)
+      const actualData2= await res.json();
+      setData2(actualData2);
+      temp1(actualData2.list[0].main.temp);
+      temp2(actualData2.list[8].main.temp);
+      temp3(actualData2.list[16].main.temp);
+      temp4(actualData2.list[32].main.temp);
+      humid1(actualData2.list[0].main.humidity);
+      humid2(actualData2.list[8].main.humidity);
+      humid3(actualData2.list[16].main.humidity);
+      humid4(actualData2.list[32].main.humidity);
+      wind1(actualData2.list[0].wind.speed);
+      wind2(actualData2.list[8].wind.speed);
+      wind3(actualData2.list[16].wind.speed);
+      wind4(actualData2.list[32].wind.speed);
+      
+    }
+    catch(err){
+      console.log(err);
+      }
+      
+  }
+  useEffect(()=>{
+    getData2("Chandigarh");
+  },[]);
+  
+ 
+
     const data1 = [
         {
-          name: currdate-7 +''+currmonth,
-          ["Temperature(in C°)"]: 30,
-          amt: 2400,
+          name: currtime,
+          ["Temperature(in C°)"]: inittemp
         },
         {
-          name: currdate-6 +''+currmonth,
-          ["Temperature(in C°)"]: 30,
-          amt: 2210,
+          name: currhour+1+""+currmonth,
+          ["Temperature(in C°)"]: temp01
         },
         {
-          name: currdate-5 +''+currmonth,
-          ["Temperature(in C°)"]: 25,
-          amt: 2290,
+          name: currhour+2+""+currmonth,
+          ["Temperature(in C°)"]: temp02
         },
         {
-          name: currdate-4 +''+currmonth,
-          ["Temperature(in C°)"]: 30,
-          amt: 2000,
+          name: currhour+3+""+currmonth, 
+          ["Temperature(in C°)"]: temp03
         },
         {
-          name: currdate-3 +''+currmonth,
-          ["Temperature(in C°)"]: 33,
-          amt: 2181,
-        },
-        {
-          name: currdate-2 +''+currmonth, 
-          ["Temperature(in C°)"]: 30,
-          amt: 2500,
-        },
-        {
-          name: currdate-1+''+currmonth,
-          ["Temperature(in C°)"]: 31,
-          amt: 2100,
+          name: currhour+4+""+currmonth ,
+          ["Temperature(in C°)"]: temp04
         },
       ];
      
      const data2 = [
         {
-          name: currdate-7+''+currmonth,
-          Humidity: 19,
-          amt: 2400,
+          name: currtime,
+          Humidity: inithum
         },
         {
-          name: currdate-6+''+currmonth,
-          Humidity: 18,
-          amt: 2210,
+          name: currhour+1+""+currmonth,
+          Humidity: humid01
         },
         {
-          name: currdate-5+''+currmonth,
-          Humidity: 20,
-          amt: 2290,
+          name: currhour+2+""+currmonth,
+          Humidity: humid02
         },
         {
-          name: currdate-4+''+currmonth,
-          Humidity: 22,
-          amt: 2000,
+          name: currhour+3+""+currmonth,
+          Humidity: humid03
         },
         {
-          name: currdate-3+''+currmonth,
-          Humidity: 25,
-          amt: 2181,
-        },
-        {
-          name: currdate-2+''+currmonth,
-          Humidity: 26,
-          amt: 2500,
-        },
-        {
-          name: currdate-1+''+currmonth,
-          Humidity: 21,
-          amt: 2100,
-        },
+          name: currhour+4+""+currmonth,
+          Humidity: humid04
+        }
       ];
      const data3 = [
         {
-          name: currdate-7+''+currmonth,
-          ["Air-Quality"]: 140,
-          amt: 2400,
+          name: currtime,
+          ["Wind-Speed"]: initwind
+         
         },
         {
-          name: currdate-6+''+currmonth,
-          ["Air-Quality"]: 60,
-          amt: 2210,
+          name: currhour+1+""+currmonth,
+          ["Wind-Speed"]: wind01
+          
         },
         {
-          name: currdate-5+''+currmonth,
-          ["Air-Quality"]: 83,
-          amt: 2290,
+          name: currhour+2+""+currmonth,
+          ["Wind-Speed"]: wind02
+          
         },
         {
-          name: currdate-4+''+currmonth,
-          ["Air-Quality"]: 123,
-          amt: 2000,
+          name: currhour+3+""+currmonth,
+          ["Wind-Speed"]: wind03
+          
         },
         {
-          name: currdate-3+''+currmonth,
-          ["Air-Quality"]: 230,
-          amt: 2181,
-        },
-        {
-          name: currdate-2+''+currmonth,
-          ["Air-Quality"]: 100,
-          amt: 2500,
-        },
-        {
-          name: currdate-1+''+currmonth,
-          ["Air-Quality"]: 63,
-          amt: 2100,
-        },
+          name: currhour+4+""+currmonth,
+          ["Wind-Speed"]: wind04
+         
+        }
+        
       ];
 
-      const percentage = 40;
+      
   
   const [data, setData]=useState([]);
+ 
   
   const getData= async (city)=>{
     try{
       const res= await fetch(apiUrl+city+`&appid=${apiKey}`)
       const actualData= await res.json();
-      console.log(actualData);
       setData(actualData);
       currhum(actualData.main.humidity);
       currtemp(actualData.main.temp);
       currwind(actualData.wind.speed);
+      currpressure(actualData.main.pressure);
     }
     catch(err){
       console.log(err);
@@ -160,8 +175,8 @@ function Home({OpenSidebar}) {
   useEffect(()=>{
     getData("Chandigarh");
   },[]);
-  
-  
+
+
 
   const inputevent=(event)=>{
     
@@ -176,12 +191,15 @@ function Home({OpenSidebar}) {
     else{
     newval(input);
     getData(input);
+    getData2(input);
     currhum(data.main.humidity);
     currtemp(data.main.temp);
     currwind(data.wind.speed);
+    
     }
   }
 
+  
   return (
     <div className='header'>
         <div className='hd'>
@@ -252,7 +270,7 @@ function Home({OpenSidebar}) {
                 <YAxis />
                 <Tooltip />
                 <Legend className='ld'/>
-                <Bar dataKey="Temperature(in C°)" fill="green"/>
+                <Bar dataKey="Temperature(in C°)" fill="#2962ff"/>
                               
                 </BarChart>
                 <h3>TEMPERATURE</h3>
@@ -275,7 +293,7 @@ function Home({OpenSidebar}) {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="Humidity" stroke="green" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="Humidity" stroke="#ff6d00" activeDot={{ r: 8 }} />
                 
                 </LineChart>
                 <h3>HUMIDITY</h3>
@@ -298,40 +316,20 @@ function Home({OpenSidebar}) {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="Air-Quality" stroke="orange" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="Wind-Speed" stroke="#2e7d32" activeDot={{ r: 8 }} />
                 
                 </LineChart>
-                <h3>AIR-QUALITY</h3>
+                <h3>WIND-SPEED</h3>
                 </div>
 
-              <div className='co'>
-              <GaugeChart id="gauge-chart3" 
-              nrOfLevels={10} 
-              width={500}
-              height={300}
-              colors={["green","yellow","red"]} 
-              arcWidth={0.2} 
-              percent={0.37} 
-/>
-<h3>PRESSURE LEVEL</h3>
-</div> 
+               
 <div className='pm'>
      
 
-<CircularProgressbar className="cp" value={percentage} text={`${percentage}%`} />
-<h3>CO2 LEVEL</h3>
+<CircularProgressbar className="cp" value={initpressure} text={`${initpressure}hPa`} />
+<h3>PRESSURE</h3>
 </div>
-<div className='co'>
-              <GaugeChart id="gauge-chart3" 
-              nrOfLevels={10} 
-              width={500}
-              height={300}
-              colors={["green","yellow","red"]} 
-              arcWidth={0.2} 
-              percent={0.37} 
-/>
-<h3>CO LEVEL</h3>
-</div> 
+ 
 
         </div>
         </main>

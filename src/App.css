@@ -59,7 +59,7 @@ body {
 /* Sidebar  */
 #sidebar {
   grid-area: sidebar;
-  height: 260%;
+  height: 180%;
   background-color: #0d2042;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -311,7 +311,8 @@ body {
     text-align: center;
     width: 100%;
     height: 40vh;
-   padding: 0px;
+    padding-top: 40px;
+    
   }
 
   .br{
